@@ -1,5 +1,10 @@
 import React from "react";
 import {
+  AiFillGithub,
+  AiFillLinkedin,
+  AiFillTwitterCircle,
+} from "react-icons/ai";
+import {
   Box,
   Flex,
   Text,
@@ -16,6 +21,25 @@ import bg from "./assests/bg.jpg";
 import { useState, useEffect } from "react";
 
 import { useTheme } from "@emotion/react";
+
+
+const socials = [
+  {
+    text: "Github",
+    link: "https://github.com/aditya3340",
+    icon: <AiFillGithub size={35} />,
+  },
+  {
+    text: "Linkedin",
+    link: "https://www.linkedin.com/in/aditya-kumar-ab81a6222/",
+    icon: <AiFillLinkedin size={35} />,
+  },
+  {
+    text: "Twitter",
+    link: "https://twitter.com/Aditya_k3340",
+    icon: <AiFillTwitterCircle size={35} />,
+  },
+];
 
 const projects = [
   {
@@ -170,6 +194,21 @@ const Projects = () => {
           </Stack>
         </Flex>
       </Box>
+      <HStack justify={"center"}>
+        {socials.map((item) => {
+          return (
+            <Box key={item.text}
+              p={1}
+              transition="transform 0.3s"
+              _hover={{
+                transform: "translateY(-5px)",
+              }}
+            >
+              <Link to={item.link}>{item.icon}</Link>
+            </Box>
+          );
+        })}
+      </HStack>
     </Box>
   );
 };

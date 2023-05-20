@@ -13,6 +13,7 @@ import {
   useDisclosure,
   Link,
   useTheme,
+  Button,
 } from "@chakra-ui/react";
 import "@fontsource/aladin";
 
@@ -30,8 +31,8 @@ const NavItems = [
     link: "/Skill",
   },
   {
-    text: "Contact",
-    link: "/Contact",
+    text: "Connect",
+    link: "/Connect",
   },
 ];
 

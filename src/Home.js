@@ -1,14 +1,24 @@
-import { Box, Flex, Heading, ScaleFade, HStack } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Heading,
+  ScaleFade,
+  HStack,
+  Text,
+  Button,
+  Link,
+} from "@chakra-ui/react";
 import "@fontsource/aladin";
 import bg from "./assests/bg.jpg";
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import {
   AiFillGithub,
   AiFillLinkedin,
   AiFillTwitterCircle,
 } from "react-icons/ai";
+import { useTheme } from "@emotion/react";
 
 const socials = [
   {
@@ -30,6 +40,7 @@ const socials = [
 
 export default function Home() {
   const [showText, setShowText] = useState(false);
+  const theme = useTheme();
 
   useEffect(() => {
     setShowText(true);
@@ -46,16 +57,28 @@ export default function Home() {
         paddingBlock={{ sm: "50px" }}
         borderRadius={"10px"}
       >
-        <Flex h={"100%"} justify={"start"} alignItems={"center"} ml="40px">
-          <Box bgColor={"#2b2b2b"}>
+        <Flex h={"100%"} justify={"start"} alignItems={"center"} ml="20px">
+          <Box bgColor={"blackAlpha.700"} pl={4} pb={4} borderRadius={5}>
             <ScaleFade initialScale={0.9} in={showText}>
               <Heading
                 letterSpacing={"5px"}
                 fontSize={{ base: "4xl", md: "5xl", lg: "7xl" }}
               >
                 {" "}
-                ADITYA <br /> KUMAR
+                ADITYA KUMAR 🫡
               </Heading>
+              <Text fontSize={"xl"}>Frontend Engineer</Text>
+              <Link href="https://drive.google.com/file/d/1SECo-s3p7roaDd__BiwEfbpESQGDgDxF/view?usp=sharing">
+                <Button
+                  paddingInline={5}
+                  borderRadius={25}
+                  mt={2}
+                  color={theme.colors.background[200]}
+                  bgColor={theme.colors.fontColor[100]}
+                >
+                  <Text>Resume</Text>
+                </Button>
+              </Link>
             </ScaleFade>
           </Box>
         </Flex>
@@ -63,7 +86,8 @@ export default function Home() {
       <HStack justify={"center"}>
         {socials.map((item) => {
           return (
-            <Box key={item.text}
+            <Box
+              key={item.text}
               p={1}
               transition="transform 0.3s"
               _hover={{

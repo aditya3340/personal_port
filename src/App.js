@@ -6,6 +6,7 @@ import About from "./About";
 import { Box, useTheme } from "@chakra-ui/react";
 import Projects from "./Projects";
 import Skills from "./Skills";
+import Connect from "./Connect";
 
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Projects" element = {<Projects/>} />
           <Route path = "/Skill" element = {<Skills/>} />
+          <Route path="/Connect" element = {<Connect/> } />
         </Routes>
       </BrowserRouter>
     </Box>
