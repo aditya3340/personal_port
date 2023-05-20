@@ -11,7 +11,8 @@ import {
   DrawerHeader,
   useBreakpointValue,
   useDisclosure,
-  Link
+  Link,
+  useTheme,
 } from "@chakra-ui/react";
 import "@fontsource/aladin";
 
@@ -21,16 +22,21 @@ import { useRef } from "react";
 const NavItems = [
   {
     text: "About",
-    link: "/About"
+    link: "/About",
   },
   { text: "Projects", link: "/Projects" },
   {
+    text: "Skills",
+    link: "/Skill",
+  },
+  {
     text: "Contact",
-    link: "/Contact"
-  }
+    link: "/Contact",
+  },
 ];
 
 function WithSubnavigation() {
+  const theme = useTheme();
   // const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
   const { isOpen, onToggle } = useDisclosure();
@@ -41,18 +47,23 @@ function WithSubnavigation() {
     <Box fontSize={fontSize}>
       <Flex justify="space-between" p={2} alignItems="center">
         <Link href="/">
-          <Text fontSize={fontSize} fontWeight="bold" fontFamily="Aladin">
+          <Text fontSize={fontSize} fontWeight="bold">
             Aditya K
           </Text>
         </Link>
         <IconButton
+          bgColor={theme.colors.background[200]}
+          _hover={{
+            bgColor: theme.colors.fontColor[100],
+            color: theme.colors.background[200],
+          }}
           onClick={onToggle}
           icon={
             isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
           }
           display={{
             sm: "block",
-            md: "none"
+            md: "none",
           }}
         />
 
@@ -76,7 +87,10 @@ function WithSubnavigation() {
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent
+          bgColor={theme.colors.background[200]}
+          color={theme.colors.fontColor[100]}
+        >
           <DrawerCloseButton />
           <DrawerHeader></DrawerHeader>
 
