@@ -62,7 +62,7 @@ export default function Home() {
             <ScaleFade initialScale={0.9} in={showText}>
               <Heading
                 letterSpacing={"5px"}
-                fontSize={{ base: "3xl", md: "5xl", lg: "7xl" }}
+                fontSize={{ base: "2xl", sm: "3xl", md: "5xl", lg: "7xl" }}
               >
                 {" "}
                 ADITYA KUMAR 🫡
